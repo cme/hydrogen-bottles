@@ -21,12 +21,12 @@ for:
 
       # Build libsndfile and bdb from source to enable building for 10.12
       time brew install --build-bottle ./berkeley-db.rb
-      brew bottle ./berkeley-db.rb
+      brew bottle berkeley-db
       time brew install --build-bottle ./libogg.rb
-      time brew bottle ./libogg.rb
+      time brew bottle libogg
       time brew install --build-bottle ./libvorbis.rb
-      time brew bottle ./libvorbis.rb
+      time brew bottle libvorbis
       time brew install --build-bottle ./libsndfile.rb
-      time brew bottle ./libsndfile.rb
+      time brew bottle libsndfile
 
 
