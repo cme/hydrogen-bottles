@@ -29,4 +29,7 @@ for:
       time brew install --build-bottle ./libsndfile.rb
       time brew bottle libsndfile
 
+      tar cvf hydrogen-bottles.tar *.tar.gz
+      appveyor PushArtifact hydrogen-bottles.tar
+
 
