@@ -1,0 +1,32 @@
+environment:
+  matrix:
+
+    - job_name: 'OS X'
+      job_group: 'Mac OS X'
+      appveyor_build_worker_image: macos
+
+
+build:
+  verbosity: detailed
+
+for:
+  - 
+    matrix:
+      only:
+        - job_group: 'Mac OS X'
+
+    build_script: |-
+
+      export MACOSX_DEPLOYMENT_TARGET=10.12
+
+      # Build libsndfile and bdb from source to enable building for 10.12
+      time brew install --build-bottle ./berkeley-db.rb
+      brew bottle ./berkeley-db.rb
+      time brew install --build-bottle ./libogg.rb
+      time brew bottle ./libogg.rb
+      time brew install --build-bottle ./libvorbis.rb
+      time brew bottle ./libvorbis.rb
+      time brew install --build-bottle ./libsndfile.rb
+      time brew bottle ./libsndfile.rb
+
+
